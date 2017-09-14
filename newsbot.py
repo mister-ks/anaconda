@@ -24,10 +24,14 @@ def get_news():
     html = soup.select('.ttl a')
 
     for i in range(0, 8):
-        html[i].span.extract()
+        html[i].find('span').decompose()
         title = html[i].text
         links = html[i].get('href')
-        print(title)
+        if title.endswith('new'):
+            print(title.replace('new',''))
+        else:
+            print(title)
         print(links)
 
 get_news()
+time_check()
