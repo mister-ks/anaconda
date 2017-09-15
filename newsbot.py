@@ -1,7 +1,9 @@
 #! python3
 # newsbot.py - get a title of news and make a link.
 
-import datetime, requests, bs4
+import datetime
+import requests
+import bs4
 
 def time_check():
     now = datetime.datetime.now()
@@ -28,7 +30,7 @@ def get_news():
         title = html[i].text
         links = html[i].get('href')
         if title.endswith('new'):
-            print(title.replace('new',''))
+            print(title.replace('new', ''))
         else:
             print(title)
         print(links)
