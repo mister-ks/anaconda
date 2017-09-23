@@ -61,40 +61,13 @@ def con_twitter():
 
     html = con_web()
     now = datetime.datetime.now()
-    if now.minute == 5:
-        html[1].span.decompose()
-        title = html[1].text
-        links = html[1].get('href')
-    elif now.minute == 10:
-        html[2].span.decompose()
-        title = html[2].text
-        links = html[2].get('href')
-    elif now.minute == 15:
-        html[3].span.decompose()
-        title = html[3].text
-        links = html[3].get('href')
-    elif now.minute == 20:
-        html[4].span.decompose()
-        title = html[4].text
-        links = html[4].get('href')
-    elif now.minute == 25:
-        html[5].span.decompose()
-        title = html[5].text
-        links = html[5].get('href')
-    elif now.minute == 30:
-        html[6].span.decompose()
-        title = html[6].span.decompose()
-        links = html[6].span.decompose()
-    elif now.minute == 35:
-        html[7].span.decompose()
-        title = html[7].text
-        links = html[7].get('href')
-    elif now.minute == 40:
-        html[8].span.decompose()
-        title = html[8].text
-        links = html[8].get('href')
-    else:
-        return False
+    for i in range(0, 10):
+        if now.minute / 5 == i:
+            html[i].span.decompose()
+            title = html[i].text
+            links = html[i].get('href')
+        else:
+            return False
 
     params = {'status': title + links}
     print(params)
